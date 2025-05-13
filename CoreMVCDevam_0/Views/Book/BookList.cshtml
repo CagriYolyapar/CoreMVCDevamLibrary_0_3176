@@ -1,0 +1,37 @@
+﻿@model List<Book>
+
+<h4>Yeni bir kitap eklemek icin <a asp-controller="Book" asp-action="CreateBook">tıklayınız</a></h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Isim</th>
+            <th>Kategorisi</th>
+            <th>Guncelle</th>
+            <th>Sil</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (Book item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                @if(item.Category == null)
+                {
+                    <td>Kategorisi yok</td>
+                }
+                else
+                {
+                    <td>@item.Category.CategoryName</td>
+                }
+                
+                <td> <a asp-action="UpdateBook" asp-controller="Book" asp-route-id="@item.Id" class="btn btn-warning">Guncelle</a>    </td>
+                <td><a asp-action="DeleteBook" asp-controller="Book" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>  </td>
+            </tr>
+        }
+    </tbody>
+</table>

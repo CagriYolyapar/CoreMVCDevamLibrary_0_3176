@@ -1,0 +1,17 @@
+﻿@model Category
+
+<form asp-controller="Category" asp-action="UpdateCategory" method="post">
+
+
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <input type="text" asp-for="CategoryName" placeholder="Isim giriniz" />
+
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Guncelle</button>
+    </div>
+
+
+</form>

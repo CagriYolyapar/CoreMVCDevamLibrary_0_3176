@@ -1,0 +1,19 @@
+﻿@model BookPageVm
+
+<form asp-action="CreateBook" asp-controller="Book" method="post">
+    <div>
+        <input type="text" asp-for="Book.Title" />
+    </div>
+
+    <div>
+        <select asp-for="Book.CategoryId" asp-items='new SelectList(Model.Categories,"Id","CategoryName")'>
+            <option>Lütfen kategori seciniz</option>
+        </select>
+
+    </div>
+
+    <div>
+        <button>Kitap Ekle</button>
+    </div>
+
+</form>

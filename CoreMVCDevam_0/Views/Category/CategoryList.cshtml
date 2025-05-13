@@ -1,0 +1,27 @@
+﻿@model List<Category>
+
+<h4>Yeni bir kategori icin <a asp-controller="Category" asp-action="CreateCategory">tıklayınız</a></h4>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Isim</th>
+            <th>Guncelle</th>
+            <th>Sil</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach(Category item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CategoryName</td>
+                <td> <a asp-action="UpdateCategory" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-warning">Guncelle</a>    </td>
+                <td><a asp-action="DeleteCategory" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>  </td>
+            </tr>
+        }
+    </tbody>
+</table>
